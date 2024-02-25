@@ -88,6 +88,8 @@ form {
 
   width: 100vw;
   height: 100vh;
+
+  padding: 20px;
 }
 
 .title {
@@ -105,6 +107,7 @@ form {
     flex-grow: 1;
     flex-shrink: 1;
     min-width: 250px;
+    max-width: 350px;
 
     [data-validation-state="valid"] {
       display: none;

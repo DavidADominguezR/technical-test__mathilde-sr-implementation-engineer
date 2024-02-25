@@ -54,6 +54,7 @@
             form.checkValidity();
             validateInput(el.name);
             birdDate18Validate(el);
+            emailFormatValidate(el);
           });
         });
       }
@@ -61,6 +62,7 @@
       Object.keys(window.config.form.values).forEach((key) => {
         validateInput(key);
         birdDate18Validate(document.querySelector(`[name=${key}]`));
+        emailFormatValidate(document.querySelector(`[name=${key}]`));
       });
 
       form.classList.add("was-validated");
@@ -164,6 +166,31 @@ function birdDate18Validate(el) {
     } else {
       const invalidFeedback = document.querySelector(
         `[data-form-field-name=${el.name}][data-invalid-type=max]`
+      );
+      invalidFeedback.dataset.validationState = "valid";
+      invalidFeedback.classList.remove("invalid-feedback");
+      window.config.form.values[el.name] = el.value;
+      el.setCustomValidity("");
+    }
+  }
+}
+
+function emailFormatValidate(el) {
+  if (el.name === "email") {
+    let regExp = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+
+    if (!regExp.test(el.value)) {
+      const invalidFeedback = document.querySelector(
+        `[data-form-field-name=${el.name}][data-invalid-type=format]`
+      );
+      invalidFeedback.dataset.validationState = "invalid";
+      invalidFeedback.classList.add("invalid-feedback");
+      window.config.form.isValid = false;
+      window.config.form.values[el.name] = null;
+      el.setCustomValidity("Invalid field.");
+    } else {
+      const invalidFeedback = document.querySelector(
+        `[data-form-field-name=${el.name}][data-invalid-type=format]`
       );
       invalidFeedback.dataset.validationState = "valid";
       invalidFeedback.classList.remove("invalid-feedback");
