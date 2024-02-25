@@ -179,7 +179,7 @@ function emailFormatValidate(el) {
   if (el.name === "email") {
     let regExp = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
 
-    if (!regExp.test(el.value)) {
+    if (!regExp.test(el.value) && el.value !== "") {
       const invalidFeedback = document.querySelector(
         `[data-form-field-name=${el.name}][data-invalid-type=format]`
       );
