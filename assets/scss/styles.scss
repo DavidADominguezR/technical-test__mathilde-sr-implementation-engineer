@@ -1,0 +1,284 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+
+$primary: $indigo-500;
+
+$theme-colors: map-merge(
+  $theme-colors,
+  (
+    "primary": $primary,
+  )
+);
+
+// -- Checkbox and radio
+$component-active-bg: $primary;
+$input-btn-focus-box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+
+$form-check-input-focus-box-shadow: $input-btn-focus-box-shadow;
+
+$form-check-input-checked-bg-color: $component-active-bg;
+$form-check-input-checked-border-color: $form-check-input-checked-bg-color;
+
+$form-check-input-indeterminate-bg-color: $component-active-bg;
+$form-check-inline-margin-end: 0.5rem;
+// -- end Checkbox and radio
+
+// -- Input and select
+$input-focus-border-color: $primary;
+$form-select-focus-border-color: $input-focus-border-color;
+$input-btn-focus-box-shadow: 0 0 0 0.2rem rgba($primary, 0.25);
+$input-focus-box-shadow: $input-btn-focus-box-shadow;
+
+$form-select-focus-box-shadow: 0 0 0 $form-select-focus-width
+  rgba($primary, 0.25);
+// -- end Input and select
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+body {
+  width: 100vw;
+  height: 100vw;
+}
+
+h1 {
+  margin: 0;
+}
+
+p {
+  margin-bottom: 0.25rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+button {
+  margin: 20px auto 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+#page-form {
+  width: 100%;
+  height: auto;
+  padding: 40px 20px;
+}
+
+#page-ads {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+}
+
+#page-thank-you {
+  display: none;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.title {
+  padding: 20px 0 10px 0;
+  text-align: center;
+}
+
+.sub-title {
+  padding: 10px 0;
+  text-align: center;
+}
+
+.form {
+  .form-field {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 250px;
+
+    [data-validation-state="valid"] {
+      display: none;
+    }
+
+    .form-check-title {
+      margin-top: 10px;
+    }
+  }
+
+  &.was-validated {
+    .form-field [data-validation-state="invalid"] {
+      display: block;
+    }
+  }
+}
+
+.insurance-cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: auto;
+
+  padding: 20px;
+
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+
+    gap: 20px;
+
+    .card {
+      overflow: hidden;
+      padding: 2.5px;
+
+      &.basic {
+        button {
+          border-color: $blue-500;
+          background: $blue-500;
+        }
+
+        &::before {
+          background: linear-gradient(
+            -45deg,
+            transparent,
+            transparent,
+            $blue-500,
+            $blue-500,
+            $blue-500
+          );
+        }
+      }
+
+      &.gold {
+        button {
+          border-color: $yellow-500;
+          background: $yellow-500;
+          color: $black;
+        }
+
+        &::before {
+          background: linear-gradient(
+            -45deg,
+            transparent,
+            transparent,
+            $yellow-500,
+            $yellow-500,
+            $yellow-500
+          );
+        }
+      }
+
+      &.black {
+        button {
+          border-color: $primary;
+          background: $primary;
+        }
+
+        &::before {
+          background: linear-gradient(
+            -45deg,
+            transparent,
+            transparent,
+            $primary,
+            $primary,
+            $primary
+          );
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -50%;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        transform-origin: top right;
+        animation: ov-animar-borde 6s linear infinite;
+      }
+
+      &.basic::after {
+        background: linear-gradient(
+          90deg,
+          transparent,
+          transparent,
+          $blue-500,
+          $blue-500,
+          $blue-500
+        );
+      }
+
+      &.gold::after {
+        background: linear-gradient(
+          90deg,
+          transparent,
+          transparent,
+          $yellow-500,
+          $yellow-500,
+          $yellow-500
+        );
+      }
+
+      &.black::after {
+        background: linear-gradient(
+          90deg,
+          transparent,
+          transparent,
+          $primary,
+          $primary,
+          $primary
+        );
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        transform-origin: bottom left;
+        animation: ov-animar-borde 6s linear infinite;
+      }
+
+      .card-body {
+        display: flex;
+        flex-direction: column;
+
+        z-index: 2;
+        background-color: $dark;
+        border-radius: var(--bs-card-border-radius);
+
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@keyframes ov-animar-borde {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

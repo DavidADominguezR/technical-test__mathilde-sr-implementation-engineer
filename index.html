@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  data-bs-theme="dark"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Matrhilde - Prueba técnica ingeniero de implementación</title>
+    <link
+      href="./assets/css/styles.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="page-form">
+      <div class="container">
+        <h1 class="title">Simulador de campañas de seguros</h1>
+        <h3 class="sub-title">Por favor, ingresa tus datos para continuar</h3>
+        <form
+          class="form needs-validation"
+          novalidate
+        >
+          <div class="form-field insurance-type">
+            <p class="form-check-title">Tipo de seguro</p>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="insuranceType"
+                id="insuranceType-0"
+                value="auto"
+                required
+              />
+              <label
+                class="form-check-label"
+                for="insuranceType-0"
+              >
+                Auto
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="insuranceType"
+                id="insuranceType-1"
+                value="moto"
+                required
+              />
+              <label
+                class="form-check-label"
+                for="insuranceType-1"
+              >
+                Moto
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="insuranceType"
+                id="insuranceType-2"
+                value="tecnologia"
+                required
+              />
+              <label
+                class="form-check-label"
+                for="insuranceType-2"
+              >
+                Tecnología
+              </label>
+            </div>
+            <div
+              data-form-field-name="insuranceType"
+              data-invalid-type="required"
+              data-validation-state="valid"
+            >
+              Por favor seleccione un tipo de seguro.
+            </div>
+          </div>
+          <div class="form-field first-name">
+            <label
+              for="firstName"
+              class="form-label"
+              >Nombres</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              name="firstName"
+              required
+            />
+            <div
+              data-form-field-name="firstName"
+              data-invalid-type="required"
+              data-validation-state="valid"
+            >
+              Por favor escriba sus nombres.
+            </div>
+          </div>
+          <div class="form-field sur-name">
+            <label
+              for="surName"
+              class="form-label"
+              >Apellidos</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="surName"
+              name="surName"
+              required
+            />
+            <div
+              data-form-field-name="surName"
+              data-invalid-type="required"
+              data-validation-state="valid"
+            >
+              Por favor escriba sus apellidos.
+            </div>
+          </div>
+          <div class="form-field phone-number">
+            <label
+              for="phoneNumber"
+              class="form-label"
+              >Teléfono</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="phoneNumber"
+              name="phoneNumber"
+              maxlength="10"
+              required
+            />
+            <div
+              data-form-field-name="phoneNumber"
+              data-invalid-type="required"
+              data-validation-state="valid"
+            >
+              Por favor escriba su número de teléfono.
+            </div>
+          </div>
+          <div class="form-field email">
+            <label
+              for="email"
+              class="form-label"
+              >E-mail</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              required
+            />
+            <div
+              data-form-field-name="email"
+              data-invalid-type="required"
+              data-validation-state="valid"
+            >
+              Por favor escriba su dirección de email.
+            </div>
+          </div>
+          <div class="form-field bird-date">
+            <label
+              for="birdDate"
+              class="form-label"
+              >Fecha de nacimiento</label
+            >
+            <input
+              type="date"
+              class="form-control"
+              id="birdDate"
+              name="birdDate"
+              required
+            />
+            <div
+              data-form-field-name="birdDate"
+              data-invalid-type="required"
+              data-validation-state="valid"
+            >
+              Por favor escriba su fecha de nacimiento.
+            </div>
+            <div
+              data-form-field-name="birdDate"
+              data-invalid-type="max"
+              data-validation-state="valid"
+            >
+              Debe ser mayor de 18 años.
+            </div>
+          </div>
+          <div class="form-field occupation">
+            <label
+              for="occupation"
+              class="form-label"
+              >Ocupación</label
+            >
+            <select
+              class="form-select"
+              id="occupation"
+              name="occupation"
+              aria-label="Ocupación"
+              required
+            >
+              <option
+                selected
+                value=""
+              >
+                Seleccione...
+              </option>
+              <option value="empleado">Empleado</option>
+              <option value="pensionado">Pensionado</option>
+              <option value="independiente">Independiente</option>
+            </select>
+            <div
+              data-form-field-name="occupation"
+              data-invalid-type="required"
+              data-validation-state="valid"
+            >
+              Por favor seleccione una ocupación.
+            </div>
+          </div>
+          <div class="form-field monthly-income">
+            <label
+              for="monthlyIncome"
+              class="form-label"
+              >Ingresos mensuales</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="monthlyIncome"
+              name="monthlyIncome"
+              maxlength="9"
+              required
+              onkeypress="return onlyNumberKey(event)"
+            />
+            <div
+              data-form-field-name="monthlyIncome"
+              data-invalid-type="required"
+              data-validation-state="valid"
+            >
+              Por favor escriba el valor de sus ingresos mensuales.
+            </div>
+            <div
+              data-form-field-name="objectAppraisal"
+              data-invalid-type="maxlength"
+              data-validation-state="valid"
+            >
+              El valor del avalúo debe ser de máximo 9 dígitos.
+            </div>
+          </div>
+          <div class="form-field object-appraisal">
+            <label
+              for="objectAppraisal"
+              class="form-label"
+              >Avalúo de objeto</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="objectAppraisal"
+              name="objectAppraisal"
+              maxlength="9"
+              required
+              onkeypress="return onlyNumberKey(event)"
+            />
+            <div
+              data-form-field-name="objectAppraisal"
+              data-invalid-type="required"
+              data-validation-state="valid"
+            >
+              Por favor escriba el valor del avalúo del objeto a asegurar.
+            </div>
+            <div
+              data-form-field-name="objectAppraisal"
+              data-invalid-type="maxlength"
+              data-validation-state="valid"
+            >
+              El valor del avalúo debe ser de máximo 9 dígitos.
+            </div>
+          </div>
+          <div class="button-container">
+            <button
+              type="submit"
+              class="btn btn-primary"
+            >
+              Buscar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="page-ads"></div>
+    <div id="page-thank-you">
+      <h1 class="title">Resumen</h1>
+      <h4 class="sub-title">
+        Gracias por adquirir el seguro <span id="insuranceName"></span> con
+        nosotros, en las proximas horas un asesor se comunicara contigo para
+        continuar el proceso.
+      </h4>
+    </div>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
